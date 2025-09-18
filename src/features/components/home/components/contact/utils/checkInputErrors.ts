@@ -54,7 +54,6 @@ const checkInputErrors = (FormStates: UseStateDictType) => {
   // make error list
   const tempErrorList = Object.entries(FormStates).reduce(
     (acc, [title, dict]) => {
-      return { ...acc, [title]: { ok: true, msg: '入力は正常です' } };
       const letters = dict.state;
       const state = checkErrors(title, letters);
       return { ...acc, ...state };
