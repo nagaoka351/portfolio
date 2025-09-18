@@ -1,0 +1,65 @@
+/** ---------------- ---------------- ---------------- header*/
+.header {
+  position: fixed;
+  z-index: var(--z-index-general);
+  width: calc(100% - 60px);
+  top: 4em;
+  height: 1.5em;
+}
+.header > div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.header > div > div {
+  position: 'relative';
+}
+
+.header svg {
+  color: var(--font-color2);
+}
+
+/* ---------------- ---------------- lineMenu*/
+.lineMenu {
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+}
+.lineMenu li {
+  margin-right: 1em;
+}
+.lineMenu li a {
+  color: var(--font-color2);
+  text-decoration: none;
+}
+
+/* ---------------- ---------------- popUpMenu*/
+.popUpMenu {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0 0.5em;
+  border: 3px solid var(--bg-color2);
+  border-radius: 2px;
+}
+
+.popUpMenu li {
+  padding: 1em 0;
+  border-bottom: 1px solid var(--font-color2);
+}
+.popUpMenu li:last-child {
+  border-bottom: 0;
+}
+
+.popUpMenu {
+  position: absolute;
+  background: var(--bg-color1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popUpMenu li a {
+  color: var(--font-color1);
+  text-decoration: none;
+}

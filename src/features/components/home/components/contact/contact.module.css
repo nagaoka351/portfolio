@@ -1,0 +1,233 @@
+/* ---------------- ---------------- contact*/
+
+/* ---------------- before submit*/
+.contact {
+  text-align: center;
+}
+
+.contact article > h2 {
+  text-align: left;
+}
+
+.contact form {
+  display: grid;
+  grid-template-rows: repeat(3, 5em) auto;
+
+  font-weight: bold;
+  font-size: large;
+}
+
+.contact .inquiry {
+  display: grid;
+}
+
+.contact .inquiry span {
+  text-align: left;
+}
+.contact .inquiry p {
+  text-align: left;
+}
+
+.contact .inquiry input {
+  max-width: 20em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.contact .inquiry textarea {
+  field-sizing: content;
+  resize: none;
+
+  font-size: 1.1em;
+  min-width: 8em;
+  min-height: 5em;
+  max-height: 20em;
+  line-height: 1.2;
+}
+
+.contact .emptyMsg {
+  color: var(--font-error-color);
+  text-align: center;
+}
+
+.contact .confirmBtn {
+  margin-top: 2em;
+}
+
+/* ---------------- confirm*/
+.contact .confirm {
+  position: fixed;
+  width: 60%;
+  height: 95%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: var(--z-index-modal);
+  display: block;
+}
+
+.confirm_grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 80% 20%;
+}
+
+.confirm_grid > div {
+  display: grid;
+  width: 60%;
+  height: 80%;
+  grid-template-rows: 15% 15% 15% 55%;
+  gap: 10px;
+  margin: auto;
+  & :nth-child(n) {
+    width: 100%;
+    height: 100%;
+  }
+  & span {
+    align-content: center;
+  }
+}
+
+.confirm .confirmInquiry {
+  display: grid;
+  grid-template-rows: 3fr 8fr;
+  & p {
+    margin: 0;
+  }
+  & textarea {
+    border: 0px;
+    color: inherit;
+    field-sizing: content;
+    resize: none;
+    font-size: 1.1em;
+    line-height: 1.2;
+    min-width: 8em;
+    max-width: 8em;
+    /* min-height: 5em;
+    max-height: 7em; */
+  }
+}
+
+.confirm .confirmOther {
+  display: grid;
+  gap: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  justify-content: center;
+
+  & input {
+    font-size: inherit;
+    color: inherit;
+    border: 0px;
+    text-align: center;
+  }
+}
+.confirm .btns {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 10fr 1fr 10fr 1fr;
+  width: 100%;
+}
+.confirm .btns .cancelBtn {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.confirm .btns .submitBtn {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+/* ---------------- after submit*/
+.contact .afterSubmit {
+  display: grid;
+  gap: 2em;
+  margin-top: 5em;
+}
+.contact .afterSubmit address {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 0;
+}
+.contact .afterSubmit address :nth-child(1) {
+  text-align: right;
+  color: var(--font-color1);
+}
+.contact .afterSubmit address :nth-child(2) {
+  text-align: left;
+  color: var(--font-color1);
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+/* ---------------- ---------------- ---------------- media 600px*/
+@media screen and (600px < width) {
+  /* ---------------- ---------------- contact*/
+
+  .contact .inquiry {
+    display: grid;
+    grid-template-columns: 1fr 6em 14em 1fr;
+    text-align: left;
+    font-size: 1.1em;
+  }
+
+  .contact .inquiry span,
+  .contact .inquiry p {
+    grid-column: 2;
+  }
+  .contact .inquiry input {
+    grid-column: 3;
+  }
+
+  .contact .inquiry textarea {
+    grid-column: 2/4;
+  }
+  .contact .inquiry p {
+    grid-column: 2/4;
+  }
+
+  .confirm .confirmInquiry {
+    & textarea {
+      min-width: 8em;
+      max-width: 22em;
+      /* min-height: 5em;
+      max-height: 12em; */
+    }
+  }
+
+  .confirm .confirmOther {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    & span {
+      text-align: right;
+      grid-column: 1/3;
+    }
+    & input {
+      color: inherit;
+      text-align: left;
+      border: 0px;
+      grid-column: 3/6;
+    }
+  }
+  .confirm .btns {
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
+  }
+}
+/* ---------------- ---------------- ---------------- media 800px */
+@media screen and (800px < width) {
+  .main section > article {
+    .confirm .confirmInquiry {
+      & textarea {
+        max-width: 32em;
+        /* min-height: 5em;
+      max-height: 12em; */
+      }
+    }
+  }
+}

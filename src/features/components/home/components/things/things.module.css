@@ -1,0 +1,19 @@
+/* ---------------- ---------------- things */
+/* ---------------- ---------------- ---------------- media 600px*/
+@media screen and (600px < width) {
+  /* ---------------- ---------------- things */
+  .things .thinking {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+  .things .thinking h2 {
+    grid-column: 1/4;
+  }
+  .things .growthTarget {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .things .growthTarget h2 {
+    grid-column: 1/3;
+  }
+}

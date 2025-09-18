@@ -1,0 +1,28 @@
+/* ---------------- ---------------- profile */
+.profile article {
+  margin-left: 10%;
+}
+
+.profile .skill {
+  line-height: 2em;
+}
+.profile .face_img {
+  width: 200px;
+  height: 200px;
+}
+/* ---------------- ---------------- ---------------- media 600px*/
+@media screen and (600px < width) {
+  /* ---------------- ---------------- profile */
+  .main .profile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% 1fr auto;
+  }
+
+  .profile > :nth-of-type(3) {
+    margin-bottom: 5em;
+  }
+
+  .profile h1 {
+    grid-column: 1/3;
+  }
+}

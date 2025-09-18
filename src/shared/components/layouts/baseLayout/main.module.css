@@ -1,0 +1,75 @@
+/* ---------------- ---------------- ---------------- main */
+.main {
+  color: var(--font-color1);
+  overflow: clip;
+  font: 1rem;
+  margin: 0 50px;
+}
+
+/* .main > * > article > *:not(h2) { */
+.main > * > article {
+  margin: 0 20px 0 20px;
+}
+
+.main .lettersBlock {
+  background-color: var(--bg-color3);
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.main section {
+  display: grid;
+  grid-template-rows: 5em auto;
+}
+.main section > :last-child {
+  margin-bottom: 5em;
+}
+
+.main section > h1 {
+  position: sticky;
+  top: 1em;
+  background: linear-gradient(
+    to right,
+    var(--bg-color-graduation1),
+    var(--bg-color-graduation2)
+  );
+  color: var(--font-color2);
+
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.5em 1em;
+  height: 1.5em;
+}
+
+.main h1 + div,
+.main h1 ~ article {
+  margin-top: 2em;
+}
+
+.main p,
+.main span {
+  width: 95%;
+  text-wrap: pretty;
+}
+
+/* ---------------- ---------------- ---------------- media 600px*/
+@media screen and (600px < width) {
+  .main section > article {
+    font-size: 1.1em;
+  }
+}
+
+/* ---------------- ---------------- ---------------- media 800px */
+@media screen and (800px < width) {
+  .main section > article {
+    font-size: 1.2em;
+  }
+}
+/* ---------------- ---------------- ---------------- media 1200px */
+@media screen and (1200px < width) {
+  .main section > article {
+    font-size: 1.3em;
+  }
+}
