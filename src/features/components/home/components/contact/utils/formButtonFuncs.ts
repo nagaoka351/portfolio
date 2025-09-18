@@ -29,34 +29,6 @@ const formButtonFuncs = ({
   onCancel: () => {
     setHasConfirmed(false);
   },
-
-  /**  change: (setHasSubmitted, setHasConfirmed) */
-  // onSubmit: async (e: React.FormEvent<HTMLFormElement>) => {
-  //   // const onSubmit = async (event: React.MouseEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-
-  //   const formEl = formRef?.current;
-  //   // if (!submitFormWithCatch(formEl, MAIL_SERVER_URL)) return;
-  //   // submitFormWithCatch(formEl, MAIL_SERVER_URL);
-  //   if (formEl) {
-  //     // formEl.submit();
-  //     const formData = new FormData(e.currentTarget);
-  //     const formData2 = formIdList.reduce(
-  //       (acc, id) => ({ ...acc, [id]: formData.get(id)!.toString() }),
-  //       {} as Record<string, string>
-  //     );
-  //     const res = await sendMailAction(formData2);
-  //     console.log(res);
-  //     if (!res.data.ok) {
-  //       setIsInquirySuccessful(false);
-  //       if (res.data.error) setInquirySuccessfulMsg(res.data.error);
-  //     } else {
-  //       setIsInquirySuccessful(true);
-  //     }
-  //     setHasSubmitted(true);
-  //     setHasConfirmed(false);
-  //   }
-  // },
 });
 
 export { formButtonFuncs };
