@@ -2,12 +2,17 @@
 import { MAIL_SERVER_URL } from '@/shared/constants';
 import axios from 'axios';
 
-const toGasFormat = (formData: FormData) => {
+const toGasQueryPramsFormat = (formData: FormData) => {
   const newFormData = Object.fromEntries(
     Object.entries(formData).filter(([, v]) => typeof v === 'string')
   ) as Record<string, string>;
   const params = new URLSearchParams(newFormData);
   return params.toString();
+};
+
+const translateErrorDict: Record<string, string> = {
+  'Failed to send email: no recipient':
+    '指定されたメールアドレスは存在していないようです。',
 };
 
 const sendMailAction = async (
@@ -17,26 +22,32 @@ const sendMailAction = async (
   ok: boolean;
   msg: string;
 }> => {
-  const newFormData = toGasFormat(formData);
+  const gasQueryPrams = toGasQueryPramsFormat(formData);
 
   try {
     if (!MAIL_SERVER_URL) throw new Error('not found MAIL_SERVER_URL');
-  } catch (error) {
-    return { ok: false, msg: String(error) };
+  } catch (err) {
+    return { ok: false, msg: String(err) };
   }
+
   try {
-    const response = await axios.post(MAIL_SERVER_URL, newFormData);
+    const response = await axios.post(MAIL_SERVER_URL, gasQueryPrams);
     if (response.status != 200) {
       console.log(response.data);
       throw new Error('Failed to submit the form');
     }
-    if (response.data.error) return { ok: false, msg: response.data.error };
-    else {
+    // client側に返すためthrowしない
+    if (response.data.error) {
+      const err = response.data.error;
+      const msg = translateErrorDict[String(err)] || String(err);
+      console.log(msg);
+      return { ok: false, msg: msg };
+    } else {
       return { ok: true, msg: 'ok' };
     }
-  } catch (error) {
-    console.log(error);
-    return { ok: false, msg: String(error) };
+  } catch (err) {
+    console.log(err);
+    return { ok: false, msg: err as string };
   }
 };
 
