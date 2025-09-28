@@ -47,7 +47,7 @@ const sendMailAction = async (
     }
   } catch (err) {
     console.log(err);
-    return { ok: false, msg: err as string };
+    return { ok: false, msg: String(err) };
   }
 };
 
